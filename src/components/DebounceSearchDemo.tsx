@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDebounce } from "../hooks/useDebounce";
 
 function DebounceSearchDemo() {
   const [searchTerm, setSearchTerm] = useState("");
   const [delay, setDelay] = useState(500);
   const debouncedValue = useDebounce(searchTerm, delay);
+
+  useEffect(() => {
+    if (debouncedValue === "") return;
+    console.log("Searching for:", debouncedValue);
+  }, [debouncedValue]);
+
   return (
     <>
       <h2>Debounce Search Demo</h2>
