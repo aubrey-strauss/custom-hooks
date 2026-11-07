@@ -3,7 +3,8 @@ import { useDebounce } from "../hooks/useDebounce";
 
 function DebounceSearchDemo() {
   const [searchTerm, setSearchTerm] = useState("");
-  const debouncedValue = useDebounce("hello");
+  const [delay, setDelay] = useState(500);
+  const debouncedValue = useDebounce(searchTerm, delay);
   return (
     <>
       <h2>Debounce Search Demo</h2>
@@ -16,7 +17,10 @@ function DebounceSearchDemo() {
       <p>Debounced value: {debouncedValue} </p>
       <label>
         Delay:{" "}
-        <select>
+        <select
+          value={delay}
+          onChange={(e) => setDelay(Number(e.target.value))}
+        >
           <option value="0">0 ms</option>
           <option value="500">500 ms</option>
           <option value="1000">1000 ms</option>
