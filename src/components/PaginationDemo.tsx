@@ -1,8 +1,24 @@
+import { usePagination } from "../hooks/usePagination";
+
 function PaginationDemo() {
+  const {
+    currentPage,
+    totalPages,
+    startIndex,
+    endIndex,
+    itemsOnCurrentPage,
+    setPage,
+    nextPage,
+    prevPage,
+    canNextPage,
+    canPrevPage,
+  } = usePagination({ totalItems: 100 });
   return (
     <>
       <h2>Pagination Demo</h2>
-      <p>Page 1 of 10</p>
+      <p>
+        Page {currentPage} of {totalPages}{" "}
+      </p>
       <ul>
         <li>Item 1</li>
         <li>Item 2</li>
@@ -14,8 +30,9 @@ function PaginationDemo() {
       <button>Page 2</button>
       <button>Page 3</button>
       <div>
-        startIndex: 0; endIndex: 9; itemsOnCurrentPage: 10; canPrevPage: false;
-        canNextPage: true;
+        startIndex: {startIndex}; endIndex: {endIndex}; itemsOnCurrentPage:{" "}
+        {itemsOnCurrentPage}; canPrevPage: {String(canPrevPage)}; canNextPage:{" "}
+        {String(canNextPage)};
       </div>
     </>
   );
