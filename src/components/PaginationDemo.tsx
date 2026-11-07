@@ -1,6 +1,7 @@
 import { usePagination } from "../hooks/usePagination";
 
 function PaginationDemo() {
+  const items = Array.from({ length: 100 }, (_, i) => `Item ${i + 1}`);
   const {
     currentPage,
     totalPages,
@@ -12,7 +13,7 @@ function PaginationDemo() {
     prevPage,
     canNextPage,
     canPrevPage,
-  } = usePagination({ totalItems: 100 });
+  } = usePagination({ totalItems: items.length });
   return (
     <>
       <h2>Pagination Demo</h2>

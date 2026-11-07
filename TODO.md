@@ -90,8 +90,6 @@ To get "Excellent": every return value works, edge cases are handled (0 items, b
 - [ ] Add a second `useEffect` in `DebounceSearchDemo` that runs when the debounced value changes
 - [ ] Log `Searching for: [debouncedValue]` to the console
 - [ ] Skip the log when the search box is empty
-- [ ] Bonus: a list (fruits, names...) filtered by the debounced value
-- [ ] Bonus: a "waiting..." message when the input and debounced value don't match
 - [ ] Check it: type "apple" fast → only ONE "Searching for: apple" log
 - [ ] Commit + push
 
@@ -143,22 +141,14 @@ To get "Excellent": every return value works, edge cases are handled (0 items, b
 - [ ] Go to the last page, then shrink "Total items" → you land on a page that exists
 - [ ] Commit + push
 
-## Phase 12: Polish (optional, but the rubric mentions performance)
-
-- [ ] Add TypeScript types for each hook's inputs and return value
-- [ ] Make `useDebounce` generic with `<T>` so it works with any type, not just strings
-- [ ] Wrap `setPage`, `nextPage`, `prevPage` in `useCallback`
-- [ ] Wrap the index math in `useMemo`
-- [ ] Commit + push
-
-## Phase 13: Test everything
+## Phase 12: Test everything
 
 - [ ] Click through every feature in both demos one more time
 - [ ] Open the browser console: no red React errors
 - [ ] Remove leftover `console.log`s you don't need (keep the "Searching for:" one)
 - [ ] Commit + push
 
-## Phase 14: Submission
+## Phase 13: Submission
 
 - [ ] README.md (description, both hooks, install/run steps)
 - [ ] Make sure the repo is public
