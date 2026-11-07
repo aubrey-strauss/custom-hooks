@@ -1,12 +1,18 @@
+import { useState } from "react";
 import { useDebounce } from "../hooks/useDebounce";
 
 function DebounceSearchDemo() {
+  const [searchTerm, setSearchTerm] = useState("");
   const debouncedValue = useDebounce("hello");
   return (
     <>
       <h2>Debounce Search Demo</h2>
-      <input placeholder="Search..." />
-      <p>Current input: </p>
+      <input
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        placeholder="Search..."
+      />
+      <p>Current input: {searchTerm} </p>
       <p>Debounced value: {debouncedValue} </p>
       <label>
         Delay:{" "}
