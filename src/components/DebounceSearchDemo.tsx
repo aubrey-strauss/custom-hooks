@@ -12,7 +12,7 @@ function DebounceSearchDemo() {
   }, [debouncedValue]);
 
   return (
-    <>
+    <section className="card">
       <h2>Debounce Search Demo</h2>
       <input
         value={searchTerm}
@@ -33,7 +33,7 @@ function DebounceSearchDemo() {
           <option value="2000">2000 ms</option>
         </select>
       </label>
-    </>
+    </section>
   );
 }
 

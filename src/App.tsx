@@ -1,4 +1,4 @@
-import "./App";
+import "./App.css";
 import PaginationDemo from "./components/PaginationDemo";
 import DebounceSearchDemo from "./components/DebounceSearchDemo";
 

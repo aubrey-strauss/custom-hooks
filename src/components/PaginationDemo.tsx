@@ -15,7 +15,7 @@ function PaginationDemo() {
     canPrevPage,
   } = usePagination({ totalItems: items.length });
   return (
-    <>
+    <section className="card">
       <h2>Pagination Demo</h2>
       <p>
         Page {currentPage} of {totalPages}{" "}
@@ -35,7 +35,7 @@ function PaginationDemo() {
         {itemsOnCurrentPage}; canPrevPage: {String(canPrevPage)}; canNextPage:{" "}
         {String(canNextPage)};
       </div>
-    </>
+    </section>
   );
 }
 
