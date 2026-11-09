@@ -13,7 +13,7 @@ function PaginationDemo() {
     prevPage,
     canNextPage,
     canPrevPage,
-  } = usePagination({ totalItems: items.length });
+  } = usePagination({ totalItems: items.length, initialPage: 3 });
   return (
     <section className="card">
       <h2>Pagination Demo</h2>
