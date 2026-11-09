@@ -15,14 +15,20 @@ export function usePagination({
 }: UsePaginationOptions) {
   // How many pages we need. Math.ceil rounds UP, so leftover items
   // still get their own page (95 items / 10 per page = 9.5 → 10 pages)
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
   const [currentPage, setCurrentPage] = useState(initialPage);
+  //Counting starts at 0, so page 1’s ten items are numbered 0 through 9
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  // How many items are on this page (the last page may not be full)
+  const itemsOnCurrentPage = Math.min(totalItems - startIndex, itemsPerPage);
+  // Index of the last item on this page (-1 because counting starts at 0)
+  const endIndex = startIndex + itemsOnCurrentPage - 1;
   return {
     currentPage,
     totalPages,
-    //Counting starts at 0, so page 1’s ten items are numbered 0 through 9.
-    startIndex: 0,
-    endIndex: 9,
-    itemsOnCurrentPage: 10,
+    startIndex,
+    endIndex,
+    itemsOnCurrentPage,
     setPage: (pageNumber: number) => {},
     nextPage: () => {},
     prevPage: () => {},

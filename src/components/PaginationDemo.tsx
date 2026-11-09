@@ -13,7 +13,8 @@ function PaginationDemo() {
     prevPage,
     canNextPage,
     canPrevPage,
-  } = usePagination({ totalItems: items.length, initialPage: 3 });
+  } = usePagination({ totalItems: items.length });
+  const pageItems = items.slice(startIndex, endIndex + 1);
   return (
     <section className="card">
       <h2>Pagination Demo</h2>
@@ -21,9 +22,9 @@ function PaginationDemo() {
         Page {currentPage} of {totalPages}{" "}
       </p>
       <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
+        {pageItems.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
       </ul>
       <button>Previous</button>
       <button>Next</button>
