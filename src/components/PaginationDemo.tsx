@@ -15,6 +15,7 @@ function PaginationDemo() {
     canPrevPage,
   } = usePagination({ totalItems: items.length });
   const pageItems = items.slice(startIndex, endIndex + 1);
+  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
   return (
     <section className="card">
       <h2>Pagination Demo</h2>
@@ -33,9 +34,16 @@ function PaginationDemo() {
       <button onClick={nextPage} disabled={!canNextPage}>
         Next
       </button>
-      <button>Page 1</button>
-      <button>Page 2</button>
-      <button>Page 3</button>
+      {/*Make the page number buttons real (one for every page) and connect them to setPage*/}
+      {pageNumbers.map((page) => (
+        <button
+          key={page}
+          onClick={() => setPage(page)}
+          className={page === currentPage ? "active" : ""}
+        >
+          {page}
+        </button>
+      ))}
       <div>
         startIndex: {startIndex}; endIndex: {endIndex}; itemsOnCurrentPage:{" "}
         {itemsOnCurrentPage}; canPrevPage: {String(canPrevPage)}; canNextPage:{" "}

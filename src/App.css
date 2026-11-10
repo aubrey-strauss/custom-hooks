@@ -37,3 +37,9 @@ select {
   border-radius: 6px;
   font: inherit;
 }
+
+.active {
+  font-weight: bold;
+  background-color: #2f6f4f;
+  color: white;
+}
