@@ -26,8 +26,8 @@ function PaginationDemo() {
           <li key={item}>{item}</li>
         ))}
       </ul>
-      <button>Previous</button>
-      <button>Next</button>
+      <button onClick={prevPage}>Previous</button>
+      <button onClick={nextPage}>Next</button>
       <button>Page 1</button>
       <button>Page 2</button>
       <button>Page 3</button>

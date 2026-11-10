@@ -23,6 +23,8 @@ export function usePagination({
   const itemsOnCurrentPage = Math.min(totalItems - startIndex, itemsPerPage);
   // Index of the last item on this page (-1 because counting starts at 0)
   const endIndex = startIndex + itemsOnCurrentPage - 1;
+  const canPrevPage = currentPage > 1;
+  const canNextPage = currentPage < totalPages;
   return {
     currentPage,
     totalPages,
@@ -30,9 +32,9 @@ export function usePagination({
     endIndex,
     itemsOnCurrentPage,
     setPage: (pageNumber: number) => {},
-    nextPage: () => {},
-    prevPage: () => {},
-    canNextPage: true,
-    canPrevPage: false,
+    nextPage: () => setCurrentPage((prev) => prev + 1),
+    prevPage: () => setCurrentPage((prev) => prev - 1),
+    canNextPage,
+    canPrevPage,
   };
 }
