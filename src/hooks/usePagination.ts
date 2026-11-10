@@ -31,7 +31,12 @@ export function usePagination({
     startIndex,
     endIndex,
     itemsOnCurrentPage,
-    setPage: (pageNumber: number) => {},
+    setPage: (pageNumber: number) => {
+      // Clamp: keep the page between 1 and totalPages.
+      const notTooHigh = Math.min(pageNumber, totalPages); // 999 → 10
+      const safePage = Math.max(notTooHigh, 1); // -5 → 1
+      setCurrentPage(safePage);
+    },
     nextPage: () => setCurrentPage((prev) => prev + 1),
     prevPage: () => setCurrentPage((prev) => prev - 1),
     canNextPage,

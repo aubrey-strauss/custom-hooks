@@ -26,8 +26,13 @@ function PaginationDemo() {
           <li key={item}>{item}</li>
         ))}
       </ul>
-      <button onClick={prevPage}>Previous</button>
-      <button onClick={nextPage}>Next</button>
+      {/* Disable Previous when canPrevPage is false, and Next when canNextPage is false*/}
+      <button onClick={prevPage} disabled={!canPrevPage}>
+        Previous
+      </button>
+      <button onClick={nextPage} disabled={!canNextPage}>
+        Next
+      </button>
       <button>Page 1</button>
       <button>Page 2</button>
       <button>Page 3</button>
